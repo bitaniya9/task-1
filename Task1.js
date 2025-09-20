@@ -20,26 +20,19 @@ class NotificationChannel{
 
 
 
-function EmailValidator(...args){
-    for(let arg of args){
-        if(!arg) throw new Error(`Email required`);
-    } 
+function EmailValidator(message,email){
+    if(!email) throw new Error(`Email required`);
+
 }
 
-function SmsValidator(...args){
-    for(let arg of args){
-        if(!arg) throw new Error(`Phone number required`);
-        
-    }
-    
+function SmsValidator(message,phoneNumber){
+    if(!phoneNumber) throw new Error(`Phone number required`);
+
 }
 
-function TelegramValidator(...args){
-    for(let arg of args){
-        if(!arg) throw new Error("Telegram ID required");
-        
-    }
-    
+function TelgramValidator(message,telegramId){
+    if(!telegramId) throw new Error(`Telegram ID required`);
+
 }
 
 
@@ -64,22 +57,25 @@ class Telegram{
 
 }
 
+
+let message="Hello";
 const n1=new NotificationChannel();
 const n2=n1.create("email");
-n2.sendEmail('Hello','nexus@gmail.com');
+EmailValidator(message,'nexus@gmail.com');
+n2.sendEmail(message,'nexus@gmail.com');
 
-
+message="Hi";
 const n3=new NotificationChannel();
 const n4=n3.create("Sms");
-n4.SmsValidator("Hi!","1234567890");
-n4.sendSms("Hi!","1234567890");
+SmsValidator(message,"1234567890");
+n4.sendSms(message,"1234567890");
 
+message='Yo!';
 const n5=new NotificationChannel();
 const n6=n5.create("telegram");
-// n6.NotificationValidator()
+TelgramValidator(message,'telegram_user_42');
 n6.sendTelegram('Yo!','telegram_user_42');
 
 
-// const 
 
 
