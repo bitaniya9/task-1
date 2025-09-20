@@ -1,3 +1,3 @@
 # task-1
 SOLID
-Single Responsibility princile: the Notification class handles more than one thing.
+Single Responsibility principle: the Notification class handles more than one thing.
